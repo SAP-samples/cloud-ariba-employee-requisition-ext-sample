@@ -1,0 +1,90 @@
+<mvc:View controllerName="com.sap.aribaemployeerequisition.controller.Detail" xmlns="sap.m" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:forms="sap.ui.layout.form" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
+		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+		<semantic:customHeaderContent>
+			<Button press="openCart" id="cartIcon" text="{appView>/cartCount}" icon="sap-icon://cart"/>
+		</semantic:customHeaderContent>
+		<semantic:content>
+			<ObjectHeader id="objectHeader" icon="{catalogItems>Image/text()}" iconAlt="{catalogItems>ShortName/text()}"
+				title="{catalogItems>ShortName/text()}"
+				number="{parts:[{path:'catalogItems>Price/Amount/text()'},{path:'catalogItems>Price/Currency/text()'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }"
+				numberUnit="{catalogItems>Price/Currency/text()}">
+				<statuses>
+					<ObjectStatus text="In Stock" state="Success"/>
+				</statuses>
+				<attributes>
+					<ObjectAttribute text="{catalogItems>Description/text()}"/>
+					<ObjectAttribute text="{catalogItems>SupplierName/text()}"/>
+					<ObjectAttribute text="{catalogItems>URL/text()}" active="true" press="handleLinkObjectAttributePress"/>
+				</attributes>
+			</ObjectHeader>
+			<IconTabBar
+					id="iconTabBar"
+					class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter
+							id="iconTabBarFilter1"
+							icon="sap-icon://supplier"
+							text="{i18n>supplier}"
+							tooltip="{i18n>detailIconTabBarInfo}">
+							<forms:SimpleForm id="supplierPanel" editable="false" maxContainerCols="1" layout="ResponsiveGridLayout"
+			labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+				<Label text="{i18n>id}"/>
+				<Text text="{catalogItems>SupplierId/item/Value/text()}"/>
+				<Label text="{i18n>partId}"/>
+				<Text text="{catalogItems>SupplierPartId/text()}"/>
+				<Label text="{i18n>leadTime}"/>
+				<Text text="{catalogItems>LeadTime/text()}"/>
+				<Label text="{i18n>catalogName}"/>
+				<Text text="{catalogItems>CatalogName/text()}"/>
+				
+			</forms:SimpleForm>
+
+					</IconTabFilter>
+					<IconTabFilter
+							id="iconTabBarFilter2"
+							icon="sap-icon://factory"
+							text="{i18n>manufacturer}"
+							tooltip="{i18n>detailIconTabBarAttachments}">
+					<forms:SimpleForm id="manufacturerPanel" editable="false" maxContainerCols="1" layout="ResponsiveGridLayout"
+				labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+				<Label text="{i18n>name}"/>
+				<Text text="{catalogItems>ManufacturerName/text()}"/>
+				<Label text="{i18n>partId}"/>
+				<Text text="{catalogItems>ManufacturerPartId/text()}"/>
+				<Label text="{i18n>originatingLineNumber}"/>
+				<Text text="{catalogItems>OriginatingLineNumber/text()}"/>
+				<Label text="{i18n>originatingColumnNumber}"/>
+				<Text text="{catalogItems>OriginatingColumnNumber/text()}"/>
+			</forms:SimpleForm>
+				
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+
+
+			<forms:SimpleForm id="orderDetailsPanel" editable="true"  maxContainerCols="1" layout="ResponsiveGridLayout"
+				labelSpanL="5" labelSpanM="5">
+				<Label text="{i18n>quantity}"/>
+				<Input value="1" id="quantityInp"/>
+				<Label text="{i18n>unitPrice}"/>
+				<Text text="{catalogItems>Price/Amount/text()}"/>
+				<Label text="{i18n>uom}"/>
+				<Text text="{catalogItems>UnitOfMeasure/Value/text()}"/>
+				
+				<Label text="{i18n>shipTo}"/>
+				<Input value="SHARE:KUNY00" id="shipToNameInp" enabled="false"/>
+				
+				<Label text="{i18n>classificationCodeDomain}"/>
+				<Text text="{catalogItems>ClassificationCode/item/Domain/text()}"/>
+				<Label text="{i18n>classificationCodeValue}"/>
+				<Text text="{catalogItems>ClassificationCode/item/Value/text()}"/>
+			</forms:SimpleForm>
+		
+		</semantic:content>
+		<semantic:customFooterContent>
+			<Button text="{i18n>addToCart}" press="onAddToCart" type="Emphasized"/>
+		</semantic:customFooterContent>
+	</semantic:DetailPage>
+</mvc:View>

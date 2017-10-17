@@ -1,0 +1,11 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="com.sap.aribaemployeerequisition.controller.SplitApp" 
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	
+	displayBlock="true"
+	busy="{appView>/busy}"
+	busyIndicatorDelay="{appView>/delay}">
+	
+	<SplitApp id="idSplitAppControl" />
+	
+</mvc:View>

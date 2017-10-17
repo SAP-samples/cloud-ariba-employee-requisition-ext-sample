@@ -1,0 +1,49 @@
+{
+  "welcomeFile": "/webapp/index.html",
+  "routes": [
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/AribaSOAPAPI",
+      "target": {
+        "type": "destination",
+        "name": "AribaSOAPAPI",
+        "entryPath": "/"
+      },
+      "description": "SOAP APIs from Ariba"
+    }
+  ],
+  "sendWelcomeFileRedirect": true,
+  "cacheControl": [
+    {
+      "directive": "private",
+      "maxAge": 0,
+      "path": "**.html"
+    },
+    {
+      "directive": "private",
+      "maxAge": 0,
+      "path": "sap-ui-cachebuster-info.json"
+    },
+    {
+      "directive": "public",
+      "maxAge": 31536000
+    }
+  ]
+}

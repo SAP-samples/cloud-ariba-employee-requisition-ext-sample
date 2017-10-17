@@ -1,0 +1,68 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:semantic="sap.m.semantic" xmlns:forms="sap.ui.layout.form"
+	controllerName="com.sap.aribaemployeerequisition.controller.Cart" xmlns:html="http://www.w3.org/1999/xhtml">
+	<semantic:FullscreenPage title="{i18n>shoppingCart}" showNavButton="true" navButtonPress="onNavButtonPress" id="FullScreenApp">
+
+		<Table id="idProductsTable" growing="true" growingThreshold="10" items="{ path: 'oCartModel>/items' }" mode="Delete" delete="onDeletePressed">
+				<headerToolbar>
+					<OverflowToolbar id="otbSubheader">
+						<Title text="Products" level="H2" />
+						<ToolbarSpacer />
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="{i18n>productName}" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+						<Text text="{i18n>quantity}" />
+					</Column>
+					<Column hAlign="Right">
+						<Text text="{i18n>unitPrice}" />
+					</Column>
+					<Column hAlign="Right">
+						<header><Text text="{i18n>subTotal}" /></header>
+							<footer>
+							<ObjectNumber id="totalFooter"
+								number="0"
+								unit="{oCartModel>Description/Price/Currency/UniqueName}" />
+						</footer>
+					</Column>
+					
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle">
+						<cells>
+							<ObjectIdentifier title="{oCartModel>ShortName}" />
+							<Input value="{path: 'oCartModel>Quantity', type: 'sap.ui.model.type.Integer'}" description="{oCartModel>Description/UnitOfMeasure/UniqueName}" type="Number" maxLength="3" textAlign="End" change="onQuantityChanged" />
+							<ObjectNumber
+								number="{
+								parts:[{path:'oCartModel>Description/Price/Amount'},{path:'oCartModel>Description/Price/Currency/UniqueName'}],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {showMeasure: false}
+							}"
+								unit="{oCartModel>Description/Price/Currency/UniqueName}" />
+							<ObjectNumber
+								number="{parts:[{path: 'oCartModel>Quantity'},{path:'oCartModel>Description/Price/Amount'}],formatter: '.setLineTotal'}"
+								unit="{oCartModel>Description/Price/Currency/UniqueName}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+
+			<forms:SimpleForm id="orderDetailsPanel" editable="true"  maxContainerCols="1" layout="ResponsiveGridLayout"
+				labelSpanL="5" labelSpanM="5">
+				<Label text="{i18n>title}"/>
+				<Input value="Requisition from Cloud Platform" id="titleInp"/>
+				<Label text="{i18n>comment}"/>
+				<Input value="" id="commentInp"/>
+				<Label text="{i18n>preparer}"/>
+				<Input id="preparerInp" enabled="false" value="ksemerdzhiev" />
+				<Label text="{i18n>requester}"/>
+				<Input id="requesterInp" enabled="false" value="ksemerdzhiev" />
+			</forms:SimpleForm>
+			
+		<semantic:customFooterContent>
+			<Button text="{i18n>submitOrder}" id="submit" press="onSubmit" type="Emphasized"/>
+		</semantic:customFooterContent>
+	</semantic:FullscreenPage>
+</mvc:View>
