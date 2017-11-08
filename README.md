@@ -4,7 +4,7 @@
 
 This is an SAP Cloud Platform Web application that exemplifies how a Fiori based app utilizing the SAP Ariba services could be created based on the Fiori Master Detail design principle.
 
-The app relies on two soap based web services which are part of the salesdemo endpoint, one which provides the catalog of items and one which is used to submit the requisition.  Each item from the catalog can be selected and then added to your cart which is accessible at the top right.  Because the app relies on web services as opposed to odata services, the Fiori Master Detail template provided by Web IDE cannot be used.  The corresponding tutorial walks the user through hand creating a master detail template as well as a full screen view contained within the same application.
+The app relies on two soap based web services which are part of the salesdemo endpoint, one which provides the catalog of items (WSCatalogItemSearch) and one which is used to submit the requisition (RequisitionImportPull).  Each item from the catalog can be selected and then added to your cart which is accessible at the top right.  Because the app relies on web services as opposed to odata services, the Fiori Master Detail template provided by Web IDE cannot be used.  The corresponding tutorial walks the user through hand creating a master detail template as well as a full screen view contained within the same application.
 
 ## Prerequisites
 
