@@ -1,16 +1,22 @@
-# Ariba Employee Requisition
+# SAP Ariba Employee Requisition
 
 ## Introduction
 
-This is an SAP Cloud Platform Web application that exemplifies how a Fiori based app utilizing the Ariba services could be created based on the Fiori Master Detail design principle.
+This is an SAP Cloud Platform Web application that exemplifies how a Fiori based app utilizing the SAP Ariba services could be created based on the Fiori Master Detail design principle.
 
-The app relies on two soap based web services, one which provides the catalog of items and one which is used to submit the requisition.  Each item from the catalog can be selected and then added to your cart which is accessible at the top right.  Because the app relies on web services as opposed to odata services, the Fiori Master Detail template provided by Web IDE cannot be used.  The corresponding tutorial walks the user through hand creating a master detail template as well as a full screen view contained within the same application.
+The app relies on two soap based web services which are part of the salesdemo endpoint, one which provides the catalog of items and one which is used to submit the requisition.  Each item from the catalog can be selected and then added to your cart which is accessible at the top right.  Because the app relies on web services as opposed to odata services, the Fiori Master Detail template provided by Web IDE cannot be used.  The corresponding tutorial walks the user through hand creating a master detail template as well as a full screen view contained within the same application.
 
 ## Prerequisites
 
-1.    SAP Cloud Platform Account
-2.    Access to an Ariba system
+1.    SAP Cloud Platform Account (Trial or Production)
+2.    Access to a SAP Ariba system
 4.    [Destinations configured for connecting to the Ariba API](#configure-the-destinations).
+
+## Services Used
+1.    SAP Cloud Platform Connectivity Service
+2.    SAP Ariba
+
+(solutiondiagram.png)
 
 ## Deploy the Application
 
@@ -21,7 +27,7 @@ The app relies on two soap based web services, one which provides the catalog of
 ## Configure the Destination
 
 You need to configure an HTTP Connectivity Destination for the Ariba P2P API before running the project.
->*Note*: To learn more about how to configure the destination, see [SAP HANA Cloud Platform Destinations Documentation] (https://help.hana.ondemand.com/help/frameset.htm?e4f1d97cbb571014a247d10f9f9a685d.html).
+>*Note*: To learn more about how to configure the destination, see [SAP Cloud Platform Destinations Documentation] (https://help.hana.ondemand.com/help/frameset.htm?e4f1d97cbb571014a247d10f9f9a685d.html).
 
 The HTTP API Destination looks like this:
 ```
@@ -44,4 +50,4 @@ Within the file webapp/Component.js find the function getCatalogItems.  Set the 
 If you deploy the application on the cloud, this is the URL pattern that you use to access it: `http://employeerequisition-<account>.<domain>`
 
 
-* SAP HANA Cloud Platform Documentation - https://help.hana.ondemand.com/
+* SAP Cloud Platform Documentation - https://help.hana.ondemand.com/
