@@ -16,7 +16,7 @@ The app relies on two soap based web services which are part of the salesdemo en
 1.    SAP Cloud Platform Connectivity Service
 2.    SAP Ariba
 
-(solutiondiagram.png)
+![solution diagram](solutiondiagram.png)
 
 ## Deploy the Application
 
