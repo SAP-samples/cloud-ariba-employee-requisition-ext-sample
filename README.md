@@ -51,3 +51,4 @@ If you deploy the application on the cloud, this is the URL pattern that you use
 
 
 * SAP Cloud Platform Documentation - https://help.hana.ondemand.com/
+* SAP Web IDE Documentation - https://help.hana.ondemand.com/webide/frameset.htm?0221845d73ad403ab2852142f3179177.html
