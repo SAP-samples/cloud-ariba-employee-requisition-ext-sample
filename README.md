@@ -1,5 +1,7 @@
 # SAP Ariba Employee Requisition
 
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/cloud-ariba-employee-requisition-ext-sample)](https://api.reuse.software/info/github.com/SAP-samples/cloud-ariba-employee-requisition-ext-sample)
+
 ## Introduction
 
 This is an SAP Cloud Platform Web application that exemplifies how a Fiori based app utilizing the SAP Ariba services could be created based on the Fiori Master Detail design principle.
